@@ -24,7 +24,8 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['sv'],
-  permLevel: 4
+  permLevel: 4,
+  kategori: "yetkili"
 };
 
 exports.help = {
