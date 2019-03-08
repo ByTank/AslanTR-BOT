@@ -1,4 +1,5 @@
 const express = require('express');
+const ayarlar = require('./ayarlar.json')
 const app = express();
 const http = require('http');
     app.get("/", (request, response) => {
@@ -16,7 +17,7 @@ const client = new Discord.Client()
 
 client.ayarlar = {
 
-	prefix: "ayarlar.prefix",) 
+	prefix: ayarlar.prefix, 
 	token: "NTQ5OTg0ODgxODAzNzg4MzE1.D1sHqg.mEweTms-X5RnrtyGRD7EJ9E4Uek",
 	klasor: "komutlar", 
 	renk: "#FF0000", )
@@ -492,4 +493,4 @@ client.on("guildMemberAdd", async (member) => {
 
 
 
-client.login(ayarlar.token)
+client.login(ayarlar.token);
