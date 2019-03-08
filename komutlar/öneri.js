@@ -29,7 +29,8 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["öner"], 
-  permLevel: 0 
+  permLevel: 0,
+  kategori: "bot"	
 };
 
 exports.help = {
