@@ -16,7 +16,7 @@ const client = new Discord.Client()
 
 client.ayarlar = {
 
-	prefix: "a+", 
+	prefix: "ayarlar.prefix",) 
 	token: "NTQ5OTg0ODgxODAzNzg4MzE1.D1sHqg.mEweTms-X5RnrtyGRD7EJ9E4Uek",
 	klasor: "komutlar", 
 	renk: "#FF0000", )
@@ -492,4 +492,4 @@ client.on("guildMemberAdd", async (member) => {
 
 
 
-client.login(client.ayarlar.token)
+client.login(ayarlar.token)
