@@ -20,7 +20,6 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["döviz"],
-  permLevel: 0,
   kategori: "eğlence"
 };
 
