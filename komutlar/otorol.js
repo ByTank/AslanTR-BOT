@@ -54,7 +54,7 @@ exports.conf =
   guildOnly: true,
   aliases: ["setautorole", "otorol", "otoroldeğiştir","otorol-ayarla"],
   permLevel: 3,
-  kategori: "moderasyon"
+  kategori: "yetkili"
 }
 
 exports.help =
