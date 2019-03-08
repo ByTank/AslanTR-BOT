@@ -15,7 +15,7 @@ exports.conf = {
   guildOnly: false, 
   aliases: [],
   permLevel: 3,
-  kategori: "yetkili"  
+  kategori: "yönetici"  
 };
 
 exports.help = {
