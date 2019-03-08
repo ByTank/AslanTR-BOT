@@ -15,7 +15,7 @@ exports.conf = {
   enabled: true, 
   guildOnly: true, 
   aliases: ['avatarım'],
-  permLevel: 0 
+  permLevel: 0, 
   kategori: "kullanıcı"   
 };
 
