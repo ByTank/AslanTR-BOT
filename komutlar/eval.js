@@ -48,7 +48,6 @@ exports.conf = {
     guildOnly: true,
     aliases: [],
     permLevel: 4,
-    kategori: "yönetici"
 }
 
 exports.help = {
