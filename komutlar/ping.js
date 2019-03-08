@@ -10,7 +10,8 @@ exports.conf = {
   enabled: true, 
   guildOnly: true, 
   aliases: ['p'],
-  permLevel: 0 
+  permLevel: 0,
+  kategori: "kullanıcı"  
 };
 
 exports.help = {
