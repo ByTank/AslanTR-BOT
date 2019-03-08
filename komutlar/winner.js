@@ -1,64 +1,32 @@
-const Discord = require('discord.js')
-const { stripIndents } = require('common-tags')
+const Discord = require('discord.js');
 
-exports.run = (client, message, args) => {
-	if (!args[0]) {
-		const help = {}
-		client.commands.forEach((command) => {
-			const cat = command.conf.kategori;
-			if (!help.hasOwnProperty(cat)) help[cat] = [];
-			help[cat].push(`\`${command.help.komut}\``);
-		})
-		var str = ''
-		for (const kategori in help) {
-			str += `**${kategori.charAt(0).toUpperCase() + kategori.slice(1)}** ${help[kategori].join(" | ")}\n\n`
-		}
-
-		const embed = new Discord.RichEmbed()
-			.setAuthor(`${client.user.username} Komutları`)
-			.setDescription(`= Komut Listesi =\n[Komut hakkında bilgi için ${client.ayarlar.prefix}yardım <komut adı>]\n${str}`)
-			.setTimestamp()
-			.setColor(client.ayarlar.renk)
-		message.channel.send({embed})
-		return
-	}
-	let command = args[0]
-	if (client.commands.has(command)) {
-		command = client.commands.get(command)
-		var yetki = command.conf.permLevel.toString()
-			.replace("0", `Yetki gerekmiyor.`)
-			.replace("1", `Mesajları Yönet yetkisi gerekiyor.`)
-			.replace("2", `Üyeleri At yetkisi gerekiyor.`)
-			.replace("3", `Yönetici yetkisi gerekiyor.`)
-			.replace("4", `Bot sahibi yetkisi gerekiyor.`)
-		const embed = new Discord.RichEmbed()
-			.addField('Komut', command.help.komut, false)
-			.addField('Açıklama', command.help.aciklama, false)
-			.addField('Kullanabilmek için Gerekli Yetki', yetki)
-			.addField('Doğru Kullanım', client.ayarlar.prefix + command.help.kullanim)
-			.addField('Alternatifler', command.conf.aliases[0] ? command.conf.aliases.join(', ') : 'Bulunmuyor')
-			.setTimestamp()
-			.setColor(client.ayarlar.renk)
-		message.channel.send({embed})
-	} else {
-		const embed = new Discord.RichEmbed()
-			.setDescription(`${args[0]} diye bir komut bulunamadı. Lütfen geçerli bir komut girin. Eğer komutları bilmiyorsanız ${client.ayarlar.prefix}yardım yazabilirsiniz.`)
-			.setTimestamp()
-			.setColor(client.ayarlar.renk)
-		message.channel.send({embed})
-	}
+exports.run = (client, message, args) => { 
+    var Jimp = require("jimp");
+    const Discord = require('discord.js');
+    let img    = Jimp.read(message.mentions.users.first() ? message.mentions.users.first().avatarURL : message.author.avatarURL),
+    moldura = Jimp.read("https://cdn.discordapp.com/attachments/484692865985806346/487841969561796608/image0.png");
+    Promise.all([img, moldura]).then(imgs => {
+    let moldura = imgs[1],
+        img    = imgs[0];
+    moldura.resize(720, 620);  
+    img.resize(720, 615) 
+    img.composite(moldura, 0, 0).getBuffer(Jimp.MIME_PNG, (err, buffer) => {
+        if (!err) 
+        message.channel.send(new Discord.Attachment(buffer));        
+    });
+});
 }
 
 exports.conf = {
-	enabled: true,
-	guildOnly: false,
-	aliases: ['h', 'halp', 'help', 'y', 'komutlar'],
-	permLevel: 0,
-	kategori: 'bot'
-}
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0,
+  kategori: "eğlence"
+};
 
 exports.help = {
-	komut: 'yardım',
-	aciklama: 'Tüm komutları gösterir.',
-	kullanim: 'yardım [komut]'
-}
+  komut: 'winner',
+  description: 'atam',
+  usage: 'winner'
+};
