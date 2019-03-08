@@ -24,7 +24,7 @@ exports.conf = {
   guildOnly: true, 
   aliases: [],
   permLevel: 0 
-  kategori:"eğlence"  
+  kategori: "eğlence"  
 };
 
 exports.help = {
