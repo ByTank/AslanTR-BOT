@@ -15,7 +15,8 @@ exports.conf = {
   enabled: true, 
   guildOnly: true, 
   aliases: [],
-  permLevel: 0 
+  permLevel: 0,
+  kategori: "sunucu"
 };
 
 exports.help = {
